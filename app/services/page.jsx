@@ -8,30 +8,30 @@ const services = [
   {
     num: "01",
     title: "Web Development",
-    // Tự thêm vào
-    description: "",
-    href: "",
+    description:
+      "Building responsive and scalable web applications using modern technologies such as React, Next.js, Spring Boot, and TailwindCSS.",
+    href: "#",
   },
   {
     num: "02",
     title: "Android Development",
-    // Tự thêm vào
-    description: "",
-    href: "",
+    description:
+      "Creating Android apps with Java/Kotlin and integrating APIs for real-world use cases. Experienced with Retrofit, RecyclerView, and Firebase.",
+    href: "#",
   },
   {
-    num: "02",
+    num: "03",
     title: "UI/UX Design",
-    // Tự thêm vào
-    description: "",
-    href: "",
+    description:
+      "Designing clean and user-friendly interfaces with attention to usability and aesthetics. Skilled in turning ideas into interactive prototypes.",
+    href: "#",
   },
   {
     num: "04",
     title: "Game Development",
-    // Tự thêm vào
-    description: "",
-    href: "",
+    description:
+      "Exploring game development concepts using frameworks like Unity and JavaScript game libraries. Passionate about combining storytelling, design, and interactivity.",
+    href: "#",
   },
 ];
 
