@@ -1,6 +1,6 @@
 "use client";
 
-import { FaJs, FaReact, FaNodeJs } from "react-icons/fa";
+import { FaJs, FaReact } from "react-icons/fa";
 
 import {
   SiPostgresql,
@@ -15,7 +15,7 @@ import {
 const about = {
   title: "About me",
   description:
-    "I am a motivated college student eager to start my career in technology. I am passionate about learning, improving my skills, and contributing to real-world projects. Currently seeking job opportunities to gain hands-on experience and grow professionally.",
+    "I am a motivated junior developer focused on building backend and fullstack applications with ASP.NET Core. I enjoy learning modern architecture patterns, improving code quality, and contributing to real-world products. Currently seeking opportunities to grow as an ASP.NET Core developer.",
   info: [
     {
       fieldName: "Name: ",
@@ -63,7 +63,7 @@ const experience = {
       position: "Side Project",
       company: "Personal Project",
       description:
-        "Developed a multi-tenant marketplace platform with features such as product listings, user authentication, and position-based access. Built using Spring Boot and Vue.js.",
+        "Developed marketplace and management modules with authentication, role-based authorization, and REST APIs using ASP.NET Core. Focused on clean architecture, database design, and maintainable backend services.",
     },
     {
       duration: "2023 - 2024",
@@ -71,6 +71,20 @@ const experience = {
       company: "Embedded Programming Class",
       description:
         "Participated in club activities focused on embedded systems. Learned low-level programming concepts, teamwork, and project collaboration.",
+    },
+    {
+      duration: "Mar 2026 - May 2026",
+      position: "Intern",
+      company: "FPT Telecom",
+      description:
+        "Developed a web application for managing Economic Learning (E-Learning) platform using ASP.NET Core and Angular.",
+    },
+    {
+      duration: "May 2026 - Present",
+      position: "Intern",
+      company: "Co Khi Nguyen Viet - Ho Chi Minh City",
+      description:
+        "Developed a web application for managing Co Khi Nguyen Viet - Ho Chi Minh City using ASP.NET MVC",
     },
   ],
 };
@@ -131,6 +145,43 @@ const skills = {
   ],
 };
 
+const achievements = {
+  title: "Achievements",
+  description:
+    "Highlights from competitions and project outcomes that show progress, consistency, and practical impact.",
+  items: [
+    {
+      year: "2025",
+      title: "Eureka Science Competition",
+      detail: "Ranked 5th place out of 7 school-level research topics.",
+    },
+    {
+      year: "2024 - Present",
+      title: "Marketplace Side Project",
+      detail:
+        "Completed core modules including authentication, tenant separation, and product management.",
+    },
+    {
+      year: "2023 - Present",
+      title: "Continuous Learning",
+      detail:
+        "Built and shipped multiple portfolio projects while improving frontend architecture and UI quality.",
+    },
+  ],
+};
+
+const goals = {
+  title: "Career Goals",
+  description:
+    "My near-term roadmap as a junior developer focused on ASP.NET Core backend engineering and fullstack delivery.",
+  items: [
+    "Join a professional team as a Backend or Fullstack Developer using ASP.NET Core.",
+    "Strengthen ASP.NET Core, Entity Framework Core, and RESTful API design.",
+    "Build secure, scalable systems with authentication, authorization, and clean architecture.",
+    "Contribute to real-world products with measurable performance and business impact.",
+  ],
+};
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Tooltip,
@@ -149,18 +200,30 @@ const Resume = () => {
         opacity: 1,
         transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
       }}
-      className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
+      className="min-h-[80vh] flex items-center justify-center py-12 xl:py-8"
     >
       <div className="container mx-auto">
+        <div className="mb-10 text-center xl:text-left">
+          <p className="mb-2 text-sm uppercase tracking-[0.2em] text-sky-300/90">
+            Resume
+          </p>
+          <h1 className="h2">Experience, Skills, and Background</h1>
+          <p className="mt-3 max-w-[760px] text-white/60 mx-auto xl:mx-0">
+            A quick overview of my hands-on learning journey, projects, and
+            technical strengths as an ASP.NET Core-oriented developer.
+          </p>
+        </div>
         <Tabs
           defaultValue="experience"
           className="flex flex-col xl:flex-row gap-[60px]"
         >
-          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
+          <TabsList className="mx-auto flex h-fit w-fit min-w-[260px] flex-col gap-3 self-start rounded-2xl border border-white/10 bg-white/5 p-3 xl:mx-0 xl:self-start">
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
             <TabsTrigger value="about">About me</TabsTrigger>
+            <TabsTrigger value="achievements">Achievements</TabsTrigger>
+            <TabsTrigger value="goals">Goals</TabsTrigger>
           </TabsList>
 
           <div className="min-h-[70vh] w-full">
@@ -175,7 +238,7 @@ const Resume = () => {
                     {experience.items.map((item, index) => {
                       return (
                         <li
-                          className="bg-[#232329] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+                          className="rounded-xl border border-white/10 bg-white/5 py-6 px-8 flex flex-col justify-center items-center lg:items-start gap-2"
                           key={index}
                         >
                           <span className="text-sky-400">{item.duration}</span>
@@ -204,7 +267,7 @@ const Resume = () => {
                     {education.items.map((item, index) => {
                       return (
                         <li
-                          className="bg-[#232329] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+                          className="rounded-xl border border-white/10 bg-white/5 py-6 px-8 flex flex-col justify-center items-center lg:items-start gap-1"
                           key={index}
                         >
                           <span className="text-sky-400">{item.duration}</span>
@@ -235,7 +298,7 @@ const Resume = () => {
                       <li key={index}>
                         <TooltipProvider duration={100}>
                           <Tooltip>
-                            <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
+                            <TooltipTrigger className="w-full h-[150px] rounded-xl border border-white/10 bg-white/5 flex justify-center items-center group">
                               <div className="text-6xl group-hover:text-sky-400 transition-all duration-300">
                                 {skill.icon}
                               </div>
@@ -269,10 +332,52 @@ const Resume = () => {
                         key={index}
                       >
                         <span className="text-white/60">{item.fieldName}</span>
-                        <span className="text-xl">{item.fieldValue}</span>
+                        <span className="text-lg xl:text-xl">{item.fieldValue}</span>
                       </li>
                     );
                   })}
+                </ul>
+              </div>
+            </TabsContent>
+            <TabsContent
+              value="achievements"
+              className="w-full text-center xl:text-left"
+            >
+              <div className="flex flex-col gap-[30px]">
+                <h3 className="text-4xl font-bold">{achievements.title}</h3>
+                <p className="max-w-[700px] text-white/60 mx-auto xl:mx-0">
+                  {achievements.description}
+                </p>
+                <ul className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                  {achievements.items.map((item, index) => (
+                    <li
+                      key={index}
+                      className="rounded-xl border border-white/10 bg-white/5 p-6"
+                    >
+                      <p className="mb-2 text-sm text-sky-400">{item.year}</p>
+                      <h4 className="text-xl font-semibold">{item.title}</h4>
+                      <p className="mt-2 text-white/60">{item.detail}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </TabsContent>
+            <TabsContent value="goals" className="w-full text-center xl:text-left">
+              <div className="flex flex-col gap-[30px]">
+                <h3 className="text-4xl font-bold">{goals.title}</h3>
+                <p className="max-w-[700px] text-white/60 mx-auto xl:mx-0">
+                  {goals.description}
+                </p>
+                <ul className="grid gap-4 max-w-[760px]">
+                  {goals.items.map((goal, index) => (
+                    <li
+                      key={index}
+                      className="rounded-xl border border-white/10 bg-white/5 px-5 py-4 text-white/80"
+                    >
+                      <span className="mr-2 text-sky-400">0{index + 1}.</span>
+                      {goal}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </TabsContent>

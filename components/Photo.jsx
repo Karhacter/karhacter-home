@@ -1,17 +1,18 @@
 "use client";
 
-import { animate, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 const Photo = () => {
   return (
-    <div className="w-full h-full relative">
+    <div className="relative flex h-full w-full items-center justify-center">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
           transition: { delay: 2, duration: 0.4, ease: "easeIn" },
         }}
+        className="relative h-[300px] w-[300px] xl:h-[506px] xl:w-[506px]"
       >
         {/* Image */}
         <motion.div
@@ -20,22 +21,21 @@ const Photo = () => {
             opacity: 1,
             transition: { delay: 2.4, duration: 0.4, ease: "easeInOut" },
           }}
-          className="w-[250px] h-[250px] xl:w-[480px] xl:h-[498px] ms-5 mt-1 mix-blend-lighten absolute
-           "
+          className="absolute left-1/2 top-1/2 h-[224px] w-[224px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border border-sky-400/30 bg-white/5 xl:h-[390px] xl:w-[390px]"
         >
           <Image
-            src="/assets/photo(2).png"
+            src="/assets/photo.jpg"
             priority
             quality={100}
             fill
             alt=""
-            className="object-contain rounded-2xl"
+            className="object-cover object-center scale-[1.02]"
           />
         </motion.div>
 
         {/* Circle */}
         <motion.svg
-          className="w-[300px] xl:w-[506px] h-[300px] xl:h-[506px]"
+          className="h-[300px] w-[300px] xl:h-[506px] xl:w-[506px]"
           fill="transparent"
           viewBox="0 0 506 506"
           xmlns="http://www.w3.org/2000/svg"

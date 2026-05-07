@@ -80,11 +80,22 @@ const Work = () => {
         opacity: 1,
         transition: { delay: 1.5, duration: 0.4, ease: "easeIn" },
       }}
-      className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
+      className="relative min-h-[80vh] flex flex-col justify-center py-12 xl:px-0 overflow-hidden"
     >
+      <div className="pointer-events-none absolute -left-20 top-16 h-64 w-64 rounded-full bg-sky-500/10 blur-3xl" />
       <div className="container mx-auto ">
+        <div className="mb-10 text-center xl:text-left">
+          <p className="mb-2 text-sm uppercase tracking-[0.2em] text-sky-300/90">
+            Portfolio
+          </p>
+          <h1 className="h2">Selected Projects</h1>
+          <p className="mt-3 max-w-[700px] text-white/60 mx-auto xl:mx-0">
+            Real projects focused on practical business needs, responsive
+            interfaces, and maintainable architecture.
+          </p>
+        </div>
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
+          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
             <div className="flex flex-col gap-[30px] h-[50%]">
               <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
                 {project.num}
@@ -96,12 +107,14 @@ const Work = () => {
               {/* Description */}
               <p className="text-white/60">{project.description}</p>
               {/* stack */}
-              <ul className="flex gap-4">
+              <ul className="flex gap-3 flex-wrap">
                 {project.stack.map((item, index) => {
                   return (
-                    <li key={index} className="text-xl text-sky-400">
+                    <li
+                      key={index}
+                      className="rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1 text-sm text-sky-300"
+                    >
                       {item.name}
-                      {item !== project.stack.length - 1 && ","}
                     </li>
                   );
                 })}
@@ -112,7 +125,7 @@ const Work = () => {
               <div className="flex items-center gap-4">
                 {/* live project button */}
 
-                <Link href={project.live}>
+                <Link href={project.live || "#"}>
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -124,7 +137,7 @@ const Work = () => {
                     </Tooltip>
                   </TooltipProvider>
                 </Link>
-                <Link href={project.github}>
+                <Link href={project.github || "#"}>
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -149,13 +162,13 @@ const Work = () => {
               {projects.map((project, index) => {
                 return (
                   <SwiperSlide key={index} className="w-full">
-                    <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
-                      <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
+                    <div className="h-[460px] relative group flex justify-center items-center rounded-2xl overflow-hidden border border-white/10 bg-[#1f1f26]">
+                      <div className="absolute top-0 bottom-0 w-full h-full bg-black/20 z-10"></div>
                       <div className="relative w-full h-full">
                         <Image
                           src={project.image}
                           fill
-                          className="object-cover"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
                           alt=""
                         />
                       </div>
